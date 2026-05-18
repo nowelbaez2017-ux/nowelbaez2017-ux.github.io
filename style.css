@@ -9,6 +9,10 @@ html {
     scroll-behavior: smooth;
 }
 
+img {
+    max-width: 100%;
+}
+
 body {
     background:
         linear-gradient(115deg, rgba(23, 8, 45, 0.98), rgba(9, 8, 23, 0.98) 48%, rgba(38, 11, 67, 0.96)),
@@ -577,6 +581,10 @@ section h2 {
 }
 
 .project-preview img {
+    background: rgba(18, 10, 34, 0.9);
+}
+
+.project-preview img {
     display: block;
     height: 100%;
     object-fit: cover;
@@ -725,6 +733,15 @@ footer {
 }
 
 @media (max-width: 640px) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    body::before {
+        background-size: 72px 72px;
+        opacity: 0.65;
+    }
+
     header {
         min-height: auto;
     }
@@ -741,6 +758,18 @@ footer {
         height: 258px;
         top: 34px;
         width: 218px;
+    }
+
+    .profile-card,
+    .tech-cube {
+        animation-duration: 18s;
+    }
+
+    .profile-card,
+    .focus-item,
+    .service-card,
+    .certificate-card {
+        transform: none !important;
     }
 
     .profile-orbit {
@@ -774,6 +803,28 @@ footer {
 
     section {
         padding: 42px 18px;
+    }
+
+    .reveal-section,
+    .reveal-section.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .card,
+    .career-card,
+    .focus-item,
+    .service-card,
+    .certificate-card,
+    .project-face {
+        backdrop-filter: none;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    .focus-item,
+    .service-card {
+        min-height: auto;
     }
 
     .certificate-card {
@@ -822,6 +873,10 @@ footer {
         position: relative;
     }
 
+    .project-preview {
+        transform: none;
+    }
+
     .project-front {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
@@ -848,6 +903,22 @@ footer {
 
     .project-link {
         align-self: flex-start;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .reveal-section,
+    .reveal-section.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .focus-item,
+    .service-card,
+    .certificate-card,
+    .tilt-card {
+        transform: none !important;
     }
 }
 

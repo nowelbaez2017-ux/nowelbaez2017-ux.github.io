@@ -12,6 +12,10 @@ const CUBE_SETTINGS = {
     spinAnimation: 'cubeSpin 12s linear infinite'
 };
 
+function isTouchLayout() {
+    return window.matchMedia('(hover: none), (pointer: coarse), (max-width: 640px)').matches;
+}
+
 function setupDraggableCube() {
     const cube = document.querySelector(SELECTORS.cube);
     if (!cube) return;
@@ -70,6 +74,8 @@ function setupDraggableCube() {
 }
 
 function setupTiltCards() {
+    if (isTouchLayout()) return;
+
     const cards = document.querySelectorAll(SELECTORS.tiltCards);
 
     cards.forEach((card) => {
@@ -92,6 +98,11 @@ function setupTiltCards() {
 function setupScrollReveal() {
     const sections = document.querySelectorAll(SELECTORS.revealSections);
     if (!sections.length) return;
+
+    if (isTouchLayout()) {
+        sections.forEach((section) => section.classList.add('is-visible'));
+        return;
+    }
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
