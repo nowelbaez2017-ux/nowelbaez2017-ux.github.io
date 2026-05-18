@@ -765,7 +765,6 @@ footer {
         animation-duration: 18s;
     }
 
-    .profile-card,
     .focus-item,
     .service-card,
     .certificate-card {
@@ -777,19 +776,24 @@ footer {
         width: 276px;
     }
 
+    .tech-cube {
+        left: 18px;
+        top: 214px;
+    }
+
     .floating-card {
         font-size: 0.84rem;
         padding: 10px 12px;
     }
 
     .floating-card-one {
-        right: 0;
+        right: 6px;
         top: 22px;
     }
 
     .floating-card-two {
-        bottom: 26px;
-        right: 0;
+        bottom: 16px;
+        right: 8px;
     }
 
     .buttons {
@@ -917,7 +921,11 @@ footer {
     .focus-item,
     .service-card,
     .certificate-card,
-    .tilt-card {
+    .profile-card {
+        transform: translateX(-50%) rotateY(-10deg) rotateX(4deg);
+    }
+
+    .tilt-card:not(.profile-card) {
         transform: none !important;
     }
 }
