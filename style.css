@@ -485,6 +485,7 @@ section h2 {
     font-size: 1.08rem;
     line-height: 1.25;
     margin: 7px 0 8px;
+    overflow-wrap: anywhere;
 }
 
 .certificate-content p {
