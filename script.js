@@ -1,6 +1,6 @@
 const SELECTORS = {
     cube: '.tech-cube',
-    tiltCards: '.tilt-card, .focus-item, .certificate-card, .service-card',
+    tiltCards: '.tilt-card:not(.profile-card), .focus-item, .certificate-card, .service-card',
     revealSections: '.reveal-section'
 };
 
@@ -18,7 +18,7 @@ function isTouchLayout() {
 
 function setupDraggableCube() {
     const cube = document.querySelector(SELECTORS.cube);
-    if (!cube) return;
+    if (!cube || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const state = {
         dragging: false,
@@ -74,7 +74,7 @@ function setupDraggableCube() {
 }
 
 function setupTiltCards() {
-    if (isTouchLayout()) return;
+    if (isTouchLayout() || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const cards = document.querySelectorAll(SELECTORS.tiltCards);
 
@@ -99,7 +99,7 @@ function setupScrollReveal() {
     const sections = document.querySelectorAll(SELECTORS.revealSections);
     if (!sections.length) return;
 
-    if (isTouchLayout()) {
+    if (isTouchLayout() || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         sections.forEach((section) => section.classList.add('is-visible'));
         return;
     }

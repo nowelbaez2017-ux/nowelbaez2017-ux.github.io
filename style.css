@@ -919,9 +919,6 @@ footer {
         transition: none;
     }
 
-    .focus-item,
-    .service-card,
-    .certificate-card,
     .profile-card {
         transform: translateX(-50%) rotateY(-10deg) rotateX(4deg);
     }
@@ -939,4 +936,31 @@ footer {
         scroll-behavior: auto !important;
         transition-duration: 0.001ms !important;
     }
+}
+
+/* Servicios y lectura directa de proyectos */
+.skip-link { position: absolute; top: 12px; left: 12px; z-index: 10; padding: 12px 18px; background: #ffffff; color: #271040; border-radius: 8px; transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+a:focus-visible { outline: 3px solid #f0abfc; outline-offset: 5px; }
+.hero-text .offer-note { font-size: 0.95rem; margin-top: 20px; color: #ddd0ff; }
+.service-process { margin-top: 24px; max-width: 760px; color: #e6dcff; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin: 24px 0; }
+.contact-actions a { display: inline-flex; align-items: center; justify-content: center; padding: 13px 20px; text-decoration: none; }
+.reveal-section { opacity: 1; transform: none; }
+.project-card { min-height: 0; perspective: none; }
+.project-card-inner { display: flex; flex-direction: column; height: 100%; min-height: 0; transform: none; transform-style: flat; transition: none; }
+.project-card:hover .project-card-inner, .project-card:focus-within .project-card-inner { transform: none; }
+.project-face { position: relative; inset: auto; min-height: 0; transform: none; backface-visibility: visible; }
+.project-front { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.project-back { flex: 1; gap: 10px; border-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+.project-back h3 { display: none; }
+.project-preview, .project-front h3, .project-front .project-kicker { transform: none; }
+.project-kicker, .certificate-kicker { font-size: 0.875rem; }
+.project-back p, .project-meta span { font-size: 0.95rem; }
+@media (max-width: 640px) {
+    .contact-actions { flex-direction: column; }
+    .contact-actions a { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
 }
